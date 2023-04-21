@@ -1,6 +1,6 @@
 # Pre-Requirements
 
-  * Node.js LTS x64 [here](https://nodejs.org/en/download)
+  * Node.js 16 LTS x64 [here](https://nodejs.org/dist/latest-v16.x/)
   * local webserver
     * `npm install -g http-server`
 
