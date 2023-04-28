@@ -8,3 +8,6 @@
 
 * https://www.w3schools.com/REACT/react_getstarted.asp
 * https://codesandbox.io/s/react-ui-template-302iq
+
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --user-data-dir="C://Chrome dev session" --disable-web-security
+

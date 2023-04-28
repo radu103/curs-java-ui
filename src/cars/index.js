@@ -1,32 +1,16 @@
 import React from "react";
-import { Stack } from "react-ui";
 
-const carsList = [
-  {
-    name : 'Ford',
-    no : 1
-  },
-  {
-    name : 'BMW',
-    no : 2
-  },
-  {
-    name : 'Audi',
-    no : 3
-  }
-  ]
+const [cars, setCars] = useState([]);
 
 function CarRow(props){
-  return <li>{props.no}. I am a {props.brand}</li>
+  return <div>{props.maker} and my color is {props.color}</div>
 }
 
 function Cars (){
   return (
       <>
       <h1>Who lives in my garage?</h1>
-      <ul> 
-         {carsList.map((car) => <CarRow brand={car} no={car.no}/>)}
-      </ul>
+         {cars.map((car) => <CarRow brand={car.makes} color={car.color}/>)}
       </>
   );
   }
