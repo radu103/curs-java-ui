@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{27:function(e,n,t){e.exports=t(48)},32:function(e,n,t){},48:function(e,n,t){"use strict";t.r(n);var o=t(0),r=t.n(o),a=t(8),c=t.n(a),i=(t(32),t(17)),m=t(18);function s(){return r.a.createElement(i.ThemeProvider,{tokens:m.tokens,components:m.components},r.a.createElement(i.Link,{href:"https://react-ui.dev/components",target:"_blank",marginBottom:4},"Open documentation"))}var p=document.getElementById("root");c.a.render(r.a.createElement(s,null),p)}},[[27,1,2]]]);
-//# sourceMappingURL=main.28f332de.chunk.js.map
