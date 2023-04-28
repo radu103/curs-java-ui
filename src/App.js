@@ -4,7 +4,7 @@ import "./styles.css";
 import { ThemeProvider, Link } from "react-ui";
 import { tokens, components } from "react-ui/themes/light";
 
-// import Examples from "./examples";
+import Examples from "./examples";
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
         target="_blank"
         marginBottom={4}
       >Open documentation</Link>
-      {/* <Examples /> */}
+      <Examples />
     </ThemeProvider>
   );
 }
