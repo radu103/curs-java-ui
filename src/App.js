@@ -13,9 +13,7 @@ export default function App() {
         href="https://react-ui.dev/components"
         target="_blank"
         marginBottom={4}
-      >
-        Open documentation
-      </Link>
+      >Open documentation</Link>
       <Examples />
     </ThemeProvider>
   );
