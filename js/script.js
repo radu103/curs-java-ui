@@ -1,25 +1,32 @@
-function changeColor() {
-    let $body = $("#htmlBody");
-    let $spans = $body.children("span");
+let carsForTable = [];
 
-    for(let i = 0; i < $spans.length; i++) {
-        let $span = $($spans.get(i));
-        $span.toggleClass("spanClass");
-    }
+function convertToTableData(car) {
+    let carForTable = [];
+    
+    carForTable.push(car.maker);
+    carForTable.push(car.model);
+    carForTable.push(car.color);
+    carForTable.push(car.year);
+    carForTable.push(car.price.price + " " + car.price.currency);
 
-    if($body.hasClass("bodyStyleGrey")) {
-        $body.removeClass("bodyStyleGrey");
-        $body.addClass("bodyStyleYellow");
-    } else {
-        $body.addClass("bodyStyleGrey");
-        $body.removeClass("bodyStyleYellow");
-    }
+    return carForTable;
 }
-    // document.body.className = (document.body.className === "bodyStyleGrey") ? "bodyStyleYellow" : "bodyStyleGrey";
-
 
 $(document).ready(function() {
-    alert("Hello World");
-});
+    $.getJSON("http://localhost/v1/car/list", function(data) {
+        for (const car of data) {
+            carsForTable.push(convertToTableData(car));
+        }
 
-$('#changeColorBtn').click(changeColor);
+        $("#carsTable").DataTable({
+            data : carsForTable,
+            columns : [
+                { title: "Maker" },
+                { title: "Model" },
+                { title: "Year" },
+                { title: "Color" },
+                { title: "Price" }
+            ]
+        });
+    })
+});
