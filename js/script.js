@@ -1,6 +1,6 @@
 function changeColor() {
     let $body = $("#htmlBody");
-    let $spans = $body.children("span");
+    let $spans = $body.children("span");  // get all children of body that are span elements
 
     for(let i = 0; i < $spans.length; i++) {
         let $span = $($spans.get(i));
@@ -19,3 +19,5 @@ function changeColor() {
 $(document).ready(function() {
     alert("Hello World!");
 });
+
+$('#changeColorBtn').click(changeColor);
