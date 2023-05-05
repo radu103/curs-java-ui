@@ -19,3 +19,5 @@ function changeColor() {
 $(document).ready(function() {
     alert("Hello World!");
 });
+
+$('#changeColorBtn').click(changeColor);
