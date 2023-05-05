@@ -1,17 +1,34 @@
-let carsTable=null;
-let cars=[];
+let carsForTable = [];
 
+function convertToTableData(car) {
+    let carForTable = [];
+
+    carForTable.push(car.maker);
+    carForTable.push(car.model);
+    carForTable.push(car.year);
+    carForTable.push(car.color);
+    carForTable.push(car.price.price + " " + car.price.currency);
+
+    return carForTable;
+}
 
 $(document).ready(function() {
 
-    $.getJSON('http://localhost:8080/v1/car/list',function(data){
-        cars=data;
-        carsTable=new DataTable('#carsTable');
-    });
-
-    $('#carsTable').DataTable({
-        ajax: 'http://localhost:8080/v1/car/list'
-    })
-
+    $.getJSON("http://localhost:8080/v1/car/list", function(data) {
     
+        for(const car of data) {
+            carsForTable.push(convertToTableData(car));
+        }
+
+        $('#carsTable').DataTable({
+            data : carsForTable,
+            columns : [
+                { title: "Maker" },
+                { title: "Model" },
+                { title: "Year" },
+                { title: "Color" },
+                { title: "Price" }
+            ]
+        });
+    });
 });
