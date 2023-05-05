@@ -2,7 +2,7 @@ let carsForTable = [];
 
 function convertToTableData(car) {
     let carForTable = [];
-    
+
     carForTable.push(car.maker);
     carForTable.push(car.model);
     carForTable.push(car.year);
@@ -21,7 +21,14 @@ $(document).ready(function() {
         }
 
         $('#carsTable').DataTable({
-            data : carsForTable
+            data : carsForTable,
+            columns : [
+                { title: "Maker" },
+                { title: "Model" },
+                { title: "Year" },
+                { title: "Color" },
+                { title: "Price" }
+            ]
         });
     });
 });
