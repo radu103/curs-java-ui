@@ -8,3 +8,5 @@
 
 * https://www.w3schools.com/REACT/react_getstarted.asp
 * https://codesandbox.io/s/react-ui-template-302iq
+
+jQuery CDN
