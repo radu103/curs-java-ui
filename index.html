@@ -3,11 +3,16 @@
     <head>
         <title>Home</title>
         <link rel="stylesheet" href="css/style.css">
-        <script src="js/script.js"></script>
+
+        <!-- jquery core -->
+        <script src="//code.jquery.com/jquery-3.6.4.js"></script>
+
+        <!-- Datatable-->
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+        <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     </head>
-    <body class="bodyStyleLightBlue">
-        <span>Body</span>
-        <span id="span1">white ?</span>
-        <input type="button" onclick="changeColor()" value="Change Color">
+    <body id="htmlBody">
+        <table id="carsTable"></table>
+        <script src="js/script.js"></script>
     </body>
 </html>
