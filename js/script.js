@@ -22,13 +22,22 @@ $(document).ready(function() {
 
         $('#carsTable').DataTable({
             data : carsForTable,
+            colReorder: true,
             columns : [
                 { title: "Maker" },
                 { title: "Model" },
                 { title: "Year" },
                 { title: "Color" },
                 { title: "Price" }
-            ]
+            ],
+            columnDefs: [
+                { target: [0,1,2,3],
+                    className: "dt-center"
+                },
+                { target: 4,
+                    className: "dt-right"
+                }
+        ]
         });
     });
 });
