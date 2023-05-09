@@ -22,7 +22,6 @@ $(document).ready(function() {
 
         $('#carsTable').DataTable({
             data : carsForTable,
-            colReorder: true,
             columns : [
                 { title: "Maker" },
                 { title: "Model" },
