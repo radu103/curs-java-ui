@@ -23,11 +23,11 @@ $(document).ready(function() {
         $('#carsTable').DataTable({
             data : carsForTable,
             columns : [
-                { title: "Maker", className:'dt-center', targets: 1 },
-                { title: "Model", className:'dt-center', targets: 1 },
-                { title: "Year", className:'dt-center', targets: 1 },
-                { title: "Color", className:'dt-center', targets: 1 },
-                { title: "Price", className:'dt-right', targets: 1 }
+                { title: "Maker" , className: 'dt-center', targets: 1},
+                { title: "Model" , className: 'dt-center', targets: 1},
+                { title: "Year" , className: 'dt-center', targets: 1},
+                { title: "Color" , className: 'dt-center', targets: 1},
+                { title: "Price" , className: 'dt-right', targets: 1}
             ]
         });
     });
