@@ -14,7 +14,7 @@ function convertToTableData(car) {
 
 $(document).ready(function() {
 
-    $.getJSON("http://localhost:8080/v3/car/list", function(data) {
+    $.getJSON("http://localhost:8080/v1/car/list", function(data) {
     
         for(const car of data) {
             carsForTable.push(convertToTableData(car));
@@ -23,13 +23,12 @@ $(document).ready(function() {
         $('#carsTable').DataTable({
             data : carsForTable,
             columns : [
-                { title: "Maker" , className: 'dt-center', targets: 1},
-                { title: "Model" , className: 'dt-center', targets: 1},
-                { title: "Year" , className: 'dt-center', targets: 1},
-                { title: "Color" , className: 'dt-center', targets: 1},
-                { title: "Price" , className: 'dt-right', targets: 1}
+                { title: "Maker" },
+                { title: "Model" },
+                { title: "Year" },
+                { title: "Color" },
+                { title: "Price" }
             ]
-            
         });
     });
 });
