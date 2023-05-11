@@ -1,30 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Stack } from "react-ui";
 
-const carsList = [
-    {
-        brand : 'Ford',
-        no : 1
-    },
-    {
-        brand : 'BMW',
-        no : 2
-    },
-    {   
-        brand : 'Audi',
-        no : 3
-    }
-];
+
+const [cars, setCars ] = useState([]);
+
+function fetchCarData() {
+    fetch("http://localhost:8080/v1/car/list")
+      .then(response =>{
+        return response.json()
+      })
+      .then(data => {
+        setCars(data);
+      })
+}
+
+
 
 function CarRow(pr) {
-    return <div>{pr.no}. I am a { pr.brand }</div>;
+    return <div>I am a {pr.color} { pr.brand }</div>;
 }
 
 function Cars() {
+
+    useEffect( () => {
+      fetchCarData();
+    })
+
     return (
       <>
-        <h1>Who lives in my garage?</h1>
-        {carsList.map((car) => <CarRow brand={car.brand} no={car.no} />)}
+        <h1>Tentativa de lista masini: </h1>
+        {cars.state.cars.map((car) => <CarRow brand={car.brand} color={car.color} />)}
       </>
     );
 }
