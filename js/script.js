@@ -28,7 +28,15 @@ $(document).ready(function() {
                 { title: "Year" },
                 { title: "Color" },
                 { title: "Price" }
-            ]
+            ],
+            columnDefs: [
+                { target: [0,1,2,3],
+                    className: "dt-center"
+                },
+                { target: 4,
+                    className: "dt-right"
+                }
+        ]
         });
     });
 });
