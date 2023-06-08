@@ -3,11 +3,52 @@
     <head>
         <title>Home</title>
         <link rel="stylesheet" href="css/style.css">
-        <script src="js/script.js"></script>
+
+        <!-- jquery core -->
+        <script src="//code.jquery.com/jquery-3.6.4.js"></script>
+
+        <!-- Datatable-->
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+        <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     </head>
-    <body class="bodyStyle">
-        <span>Body</span>
-        <span id="span1">white ?</span>
-        <input type="button" onclick="changecolor()" value="Change Color">
+    <body id="htmlBody">
+        <table id="carsTable">
+        </table>
+        <div>
+            <label for="makerInput">Maker:</label>
+            <input type="text" id="makerInput" placeholder="Maker">
+            <br>
+
+            <label for="modelInput">Model:</label>
+            <input type="text" id="modelInput" placeholder="Model">
+            <br>
+            
+            <label for="yearInput">Year:</label>
+            <input type="text" id="yearInput" placeholder="Year">
+            <br>
+
+            <label for="colorInput">Color:</label>
+            <input type="text" id="colorInput" placeholder="Color">
+            <br>
+
+            <label for="priceInput">Price:</label>
+            <input type="text" id="priceInput" placeholder="Price">
+            <br>
+
+            <label for="currencyInput">Currency:</label>
+            <input type="text" id="currencyInput" placeholder="Currency">
+            <br>
+
+            <label for="consumptionInput">Consumption:</label>
+            <input type="text" id="consumptionInput" placeholder="Consumption">
+            <br>
+
+            <label for="isManualInput">Manual:</label>
+            <input type="text" id="isManualInput" placeholder="isManual">
+            <br>
+        </div>
+        <input type="button" id="createCarBtn" value="Create Car">
+        
+        <script src="js/script.js"></script>
     </body>
 </html>
