@@ -4,7 +4,7 @@ import "./styles.css";
 import { ThemeProvider } from "react-ui";
 import { tokens, components } from "react-ui/themes/light";
 
-import Cars, { moreExpensive } from "./cars";
+import Cars from "./cars";
 
 export default function App() {
   return (
