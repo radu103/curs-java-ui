@@ -31,6 +31,7 @@ function _createTable(carsForTable) {
 function _loadTableData() {
     $.getJSON("http://localhost:8080/v2/car/list", function (data) {
 
+        carsForTable = [];
         for (const car of data) {
             carsForTable.push(_convertToTableData(car));
         }
@@ -39,7 +40,8 @@ function _loadTableData() {
             _createTable(carsForTable);
         }
         else {
-            carsDataTable.data(carsForTable);
+            carsDataTable.destroy();
+            _createTable(carsForTable);
         }
     });
 }
@@ -87,7 +89,6 @@ $('#updateCarBtn').click(function () {
             currency: document.getElementById("currencyInput1").value
         }
     };
-
 
     $.ajax({
         url: "http://localhost:8080/v2/car/update/" + car.id,
