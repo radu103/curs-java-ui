@@ -29,8 +29,9 @@ function _createTable(carsForTable) {
 }
 
 function _loadTableData() {
-    $.getJSON("http://localhost:8080/v2/car/list", function (data) {
+    $.getJSON("http://localhost/v2/car/list", function (data) {
 
+        carsForTable = [];
         for (const car of data) {
             carsForTable.push(_convertToTableData(car));
         }
@@ -39,7 +40,8 @@ function _loadTableData() {
             _createTable(carsForTable);
         }
         else {
-            carsDataTable.data(carsForTable);
+            carsDataTable.destroy();
+            _createTable(carsForTable);
         }
     });
 }
@@ -59,7 +61,7 @@ $('#createCarBtn').click(function () {
     };
 
     $.ajax({
-        url: "http://localhost:8080/v2/car/add",
+        url: "http://localhost/v2/car/add",
         type: "POST",
         data: JSON.stringify(car),
         contentType: "application/json; charset=utf-8",
@@ -88,9 +90,8 @@ $('#updateCarBtn').click(function () {
         }
     };
 
-
     $.ajax({
-        url: "http://localhost:8080/v2/car/update/" + car.id,
+        url: "http://localhost/v2/car/update/" + car.id,
         type: "POST",
         data: JSON.stringify(car),
         contentType: "application/json",
@@ -103,3 +104,31 @@ $('#updateCarBtn').click(function () {
         }
     });
 });
+
+function validateCurrency() {
+    if(this.value.length !== 3){
+        this.style.borderColor = "red";
+        return false;
+    }
+    else{
+        this.style.borderColor = "green";
+        return true;
+    }
+}
+
+function validateModel(){
+    if(this.value.toLowerCase.charAt(0)===this.value.charAt(0)){
+        this.style.borderColor = "red";
+        return false;
+    }
+    else{
+        this.style.borderColor = "green";
+        return true;
+    }
+}
+
+$("modelInput").on("change", validateBrand);
+$("modelInput1").on("change", validateBrand);
+
+$("#currencyInput").on("change", validateCurrency);
+$("#currencyInput1").on("change", validateCurrency);
