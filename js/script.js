@@ -104,3 +104,17 @@ $('#updateCarBtn').click(function () {
         }
     });
 });
+
+function validateCurrency() {
+    if(this.value.length !== 3){
+        this.style.borderColor = "red";
+        return false;
+    }
+    else{
+        this.style.borderColor = "green";
+        return true;
+    }
+}
+
+$("#currencyInput").on("change", validateCurrency);
+$("#currencyInput1").on("change", validateCurrency);
