@@ -1,8 +1,10 @@
 let carsForTable = [];
+let carsDataTable = null;
 
 function _convertToTableData(car) {
     let carForTable = [];
 
+    carForTable.push(car.id);
     carForTable.push(car.maker);
     carForTable.push(car.model);
     carForTable.push(car.year);
@@ -12,11 +14,11 @@ function _convertToTableData(car) {
     return carForTable;
 }
 
-let carsDataTable = null;
 function _createTable(carsForTable) {
     carsDataTable = $('#carsTable').DataTable({
         data: carsForTable,
         columns: [
+            { title: "ID", className: 'dt-center', targets: 1 },
             { title: "Maker", className: 'dt-center', targets: 1 },
             { title: "Model", className: 'dt-center', targets: 1 },
             { title: "Year", className: 'dt-center', targets: 1 },
@@ -71,4 +73,33 @@ $('#createCarBtn').click(function () {
         }
     });
 
+});
+
+$('#updateCarBtn').click(function () {
+    let car = {
+        id: document.getElementById("idInput1").value,
+        maker: document.getElementById("makerInput1").value,
+        model: document.getElementById("modelInput1").value,
+        year: document.getElementById("yearInput1").value,
+        color: document.getElementById("colorInput1").value,
+        price : {
+            price : document.getElementById("priceInput1").value,
+            currency: document.getElementById("currencyInput1").value
+        }
+    };
+
+
+    $.ajax({
+        url: "http://localhost:8080/v2/car/update/" + car.id,
+        type: "POST",
+        data: JSON.stringify(car),
+        contentType: "application/json",
+        success: function (data) {
+            alert("Car updated!");
+            _loadTableData();
+        },
+        error: function (xhr, status, error) {
+            alert(xhr.responseText);
+        }
+    });
 });
