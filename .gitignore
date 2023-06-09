@@ -1,4 +1,7 @@
 node_modules
+<<<<<<< HEAD
 package-lock.json
 .vscode
 build
+=======
+>>>>>>> a5e4a1aa1ea3b203a945a2a0b899667e850c4778
