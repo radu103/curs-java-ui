@@ -1,31 +1,34 @@
 import React from "react";
 import { fetchData } from "./connect";
 
-async function reset() {
-    await fetchData("v1/car/list/reset");
-    document.location.reload();
-}
+let id;
+
 function showPanel() {
-    document.getElementById("panelBody").style.display="block";
-    document.getElementById("panelBody").classList.remove('animate__fadeOut');
-    document.getElementById("panelBody").classList.add('animate__animated', 'animate__fadeIn');
+    document.getElementById("panelBody"+id).style.display="block";
+    document.getElementById("panelBody"+id).classList.remove('animate__fadeOut');
+    document.getElementById("panelBody"+id).classList.add('animate__animated', 'animate__fadeIn');
+    console.log("panel shown");
 }
 function hidePanel() {
-    document.getElementById("panelBody").classList.add('animate__animated', 'animate__fadeOut');
-    setTimeout(() => {document.getElementById("panelBody").style.display="none";}, 1000);
+    document.getElementById("panelBody"+id).classList.add('animate__animated', 'animate__fadeOut');
+    setTimeout(() => {document.getElementById("panelBody"+id).style.display="none";}, 1000);
 }
 
-function Panel() {
+function Panel({mainFunction,title,btnValue,value}) {
+    const handleClick = async event => {
+        id = event.currentTarget.id;
+        showPanel();
+      };
     return (
         <>
-            <button type="button" class="animate__animated animate__fadeInUp" onClick={function(){showPanel()}}>reset</button>
-            <div id="panelBody" class="carSqr">
+            <button type="button" class="animate__animated animate__fadeInUp" id={value} onClick={handleClick}>{btnValue}</button>
+            <div id={"panelBody"+value} class="otherSqr">
                 <ul>
                     <li>
-                        <h1>are you sure you want to reset?</h1>
+                        <h1>{title}</h1>
                     </li>
                     <li>
-                        <button type="button" onClick={() => {reset()}}>yes</button>
+                        <button type="button" onClick={mainFunction}>yes</button>
                         <button type="button" onClick={() => {hidePanel()}}>no</button>
                     </li>
                 </ul>

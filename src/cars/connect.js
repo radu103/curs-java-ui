@@ -1,7 +1,7 @@
 import React from "react";
 
 let data2;
-let serverAddress = "http://localhost:8080/";
+let serverAddress = "http://10.11.10.107:8080/";
 
 function setData(params) {
   data2=params;

@@ -1,6 +1,7 @@
 import React from "react";
 import {hideUi, showUi, isEmpty} from ".";
 import { fetchData, uPostData } from "./connect";
+import Panel from "./panel";
 
 var localId, localMaker, localModel, localYear, localColor, localPrice, localPhoto; 
 
@@ -84,6 +85,11 @@ export async function setData(id) { // placeholder
     )
 }
 
+async function proccesDelete() {
+    await deleteCar();
+    setTimeout(() => {hideBody()}, 500);
+}
+
 function Editor() {
     return (
         <>
@@ -116,8 +122,9 @@ function Editor() {
                         <button type="button" onClick={() => {hideBody()}}>back</button>
                     </li>
                     <li>
-                        <button type="delete" onClick={async () => {await deleteCar();setTimeout(() => {hideBody()}, 500)}}>delete</button>
+                        <Panel mainFunction={proccesDelete} title="are you sure you want to delete this car?" btnValue="delete" value={1}/>
                     </li>
+                    
                     <li>
                         <h3 id="errorMessage"></h3>
                     </li>

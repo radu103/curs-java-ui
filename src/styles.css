@@ -37,6 +37,23 @@ input {
     height: 40%;
     width: 10%;
 }
+.otherSqr {
+    left:0;
+    right:0;
+    position: absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    background-color: white;
+    display: none;
+    z-index: 3;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    animation-duration: 1s;
+}
 .carSqr img {
     width:70%;
     height:50%;
@@ -52,17 +69,3 @@ ul {
 #editorBody {
     display: none;
 }
-#panelBody {
-    left:0;
-    right:0;
-    position: absolute;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-    height: 10%;
-    background-color: white;
-    display: none;
-    z-index: 3;
-}
-  

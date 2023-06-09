@@ -41,7 +41,10 @@ export function showUi() {
 
   setTimeout(() => {document.getElementById("carBody").style.display = "block"}, 1000);
 }
-
+async function reset() {
+  await fetchData("v2/car/list/reset");
+  document.location.reload();
+}
 function Cars() {
   const [cars, setCars ] = useState([]);
 
@@ -84,7 +87,7 @@ function Cars() {
         <input id="divideValue" type="text" class="animate__animated animate__fadeInUp"></input>
         <button type="button" class="animate__animated animate__fadeInUp" onClick={function(){divide()}}>divide by x times</button><br/>
         <p id="errorMessage"></p>
-        <Panel/>
+        <Panel mainFunction={reset} title="are you sure you want to reset?" btnValue="reset" value={0}/>
         <br/>
       </div>
       <Creator/>
